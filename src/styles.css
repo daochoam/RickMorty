@@ -94,3 +94,10 @@ img {
   font-weight: 700;
   font-size: 44px;
 }
+
+/* =================================================================
+    * ANGULAR MATERIAL MODAL *
+==================================================================*/
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+  z-index: 99999 !important;
+}

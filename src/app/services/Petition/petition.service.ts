@@ -3,12 +3,13 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+import { Character, ReqCharacter } from '../../interfaces'
 @Injectable({
   providedIn: 'root'
 })
 export class PetitionService {
 
-  constructor(private http: HttpClient, private router:Router) { }
+  constructor(private http: HttpClient) { }
 
   public URL: string = "https://rickandmortyapi.com/api"
 
@@ -32,5 +33,9 @@ export class PetitionService {
         })
     })
     return promise
+  }
+
+  getCharacter(url: string): Observable<Character[]> {
+    return this.http.get<Character[]>(url)
   }
 }

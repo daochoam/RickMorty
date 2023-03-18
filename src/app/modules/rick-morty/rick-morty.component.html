@@ -1,10 +1,15 @@
 <app-lateral-menu></app-lateral-menu>
 <div class="row floatWindow">
-  <div class="info">
+  <div class="info search-results"
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="onScroll()"
+      [scrollWindow]="false">
     <table class="table table-striped table-hover">
-      <thead>
+      <thead class="T-Head tsmall">
         <tr>
-          <th style="width: 100px;" scope="col">Id</th>
+          <th class="id" scope="col">Id</th>
           <th scope="col">Image</th>
           <th scope="col">Name</th>
           <th scope="col">Status</th>
@@ -12,22 +17,98 @@
           <th scope="col">View</th>
         </tr>
       </thead>
+      <thead class="T-Head vsmall">
+        <tr>
+          <th class="vsmall" scope="row">Characters</th>
+        </tr>
+      </thead>
 
       <tbody>
-        <tr *ngFor="let character of ListCharacters" >
-          <td style="width: 100px;">{{ character.id }}</td>
-          <td> <img [lazyLoad]=character.image class="imgproducto" alt="Angular" /></td>
-          <td>{{ character.name }}</td>
-          <td>{{ character.status }}</td>
-          <td>{{ character.gender }}</td>
-          <td><i class="fa-sharp fa-solid fa-circle-play fa-xl" (click)="View(character.id)"></i></td>
+        <tr *ngFor="let character of ListCharacters" (click)="loadById(character.id)">
+            <td class="id">{{ character.id }}</td>
+            <td> <img [lazyLoad]=character.image class="imgproducto" alt="Angular" /></td>
+            <td><p class="name">{{ character.name }}</p></td>
+            <td>{{ character.status }}</td>
+            <td>{{ character.gender }}</td>
+          <td>
+            <i class="fa-sharp fa-solid fa-circle-play fa-2x" (click)="viewEpisodes(character.id)"></i>
+          </td>
         </tr>
       </tbody>
     </table>
   </div>
-  <!-- <div class="button">
-    <div class="new" title="Add Product" (click)="OpenModal()">
-      <i class="fa-sharp fa-regular fa-plus fa-lg"></i>
+    <div class="button">
+      <i title="Add Character" class="fa-sharp fa-regular fa-circle-plus fa-2x" (click)="openModal()"></i>
+  </div>
+</div>
+
+<div  class="modal fade"  id="modal-character"  tabindex="-1"  aria-labelledby="exampleModalLabel"  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-body">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel" title="Register Character">
+          Character
+        </h3>
+        <div  type="button"  class="btn-shut"  title="close"  (click)="closeModal()">
+          <h1>&times;</h1>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="modal-body">
+            <div class="row">
+              <div class="form-group col-12 col-md-6">
+                <label class="col-form-label">Id:</label>
+                <input type="text" class="form-control" title="Id" [(ngModel)]="id" placeholder="Id" required/>
+              </div>
+              <div class="form-group col-12 col-md-12">
+                <label for="message-text" class="col-form-label">Name:</label>
+                <input class="form-control" title="Name" [(ngModel)]="name" placeholder="Name"/>
+              </div>
+              <div class="row">
+                <div class="form-group col-12 col-md-6">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Gender:</mat-label>
+                    <mat-select [(ngModel)]="gender" title="Gender" placeholder="Gender">
+                      <option label=" -- Select something -- "></option>
+                      <mat-option *ngFor="let Gender of ListGender" [value]="Gender.field" >
+                        {{ Gender.field }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="form-group col-12 col-md-6">
+                  <mat-form-field appearance="fill">
+                    <mat-label>Status:</mat-label>
+                    <mat-select [(ngModel)]="status" title="Status" placeholder="Status">
+                      <option label=" -- Select something -- "></option>
+                      <mat-option *ngFor="let Status of ListStatus" [value]="Status.field" >
+                        {{ Status.field }}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+
+            <!-- UPLOAD IMAGES -->
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button  *ngIf="id === ''"  type="button"  class="btn btn-primary"  title="Save"  (click)="Save()">
+          Save
+        </button>
+        <div class="row btn-ud" *ngIf="id !== ''">
+          <button  type="button"  class="btn btn-primary"  title="Update"  (click)="Update()">
+            Update
+          </button>
+          <button  type="button"  class="btn btn-danger"  title="Delete"  (click)="Delete()">
+            Delete
+          </button>
+        </div>
+      </div>
     </div>
-  </div> -->
+  </div>
 </div>
