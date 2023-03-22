@@ -72,16 +72,11 @@ export class ModalDataComponent implements OnInit {
             this.saveCharacter()
           }
           else {
-            console.log('Err1');
-            console.log(this.id,this.Pages, InfoCharacters.pages, this.maxloadCharacter ,this.ListCharacters);
             this.msn.saveErr()
           }
         }
         else if (this.id <= InfoCharacters.count) {
           this.msn.saveErr()
-          console.log('Err2');
-          console.log(this.id,this.Pages, InfoCharacters.pages, this.maxloadCharacter ,this.ListCharacters);
-
         }
         else {
           this.saveCharacter()
@@ -93,9 +88,6 @@ export class ModalDataComponent implements OnInit {
         }
         else {
           this.msn.saveErr()
-          console.log('Err3');
-          console.log(this.id,this.Pages, InfoCharacters.pages, this.maxloadCharacter ,this.ListCharacters);
-
         }
       }
     }
@@ -107,8 +99,6 @@ export class ModalDataComponent implements OnInit {
         this.msn.Err(CheckName.message)
     }
     else {
-      console.log('aqui');
-
       var location = this.ListCharacters.findIndex((item) => item.id == (this.id))
       this.ListCharacters[location].name=this.name
       this.ListCharacters[location].gender=this.gender
