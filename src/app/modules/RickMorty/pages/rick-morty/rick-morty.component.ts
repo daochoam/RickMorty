@@ -13,7 +13,6 @@ import {  Character,
 import { ReqEpisodesService } from '../../services/ReqEpisodes/req-episodes.service';
 import { ReqRickMortyService } from '../../services/ReqRickMorty/req-rick-morty.service';
 
-
 declare var $: any;
 let InfoCharacters: Req['info']
 let InfoEpisodes: Req['info']
@@ -102,8 +101,6 @@ export class RickMortyComponent implements OnInit {
       gender: 'unknown',
       episode: episode
     }
-    console.log(this.DataCharacter);
-
     this.CUD = false
     this.openModal()
   }
