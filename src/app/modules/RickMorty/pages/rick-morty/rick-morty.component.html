@@ -55,7 +55,13 @@
 
   <app-modal-data
     [ListCharacters]="ListCharacters"
-    [modalData]="DataCharacter"
+    [id]="DataCharacter.id"
+    [image]="DataCharacter.image"
+    [name]="DataCharacter.name"
+    [gender]="DataCharacter.gender"
+    [status]="DataCharacter.status"
+    [episode]="DataCharacter.episode"
+    [maxloadCharacter]="maxloadCharacter"
     [modalCUD]="CUD"
     [Pages]="Pages"
     (newListCharacters)="ListCharacters=$event">
@@ -65,6 +71,5 @@
     [imgCharacter]="imageCharacter"
     [nameCharacter]="nameCharacter"
     [maxloadCharacter]="maxloadCharacter"
-    [ViewEpisode]="ViewEpisode"
-    (cleanViewEpisode)="ViewEpisode=$event">
+    [ViewEpisode]="ViewEpisode">
   </app-view-episode>

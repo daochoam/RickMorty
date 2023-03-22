@@ -13,19 +13,19 @@
             <div class="row">
               <div class="photo form-group col-12 col-md-3">
                 <img
-                  [lazyLoad]="modalData.image"
+                  [lazyLoad]="image"
                   fetchpriotity="auto"
                   alt="image character"
                 />
               </div>
               <div
-                *ngIf="modalData.name != ''"
+                *ngIf="name != ''"
                 class="text form-group col-12 col-md-9"
               >
-                <h3 [title]="modalData.name">{{ modalData.name }}</h3>
+                <h3 [title]="name">{{ name }}</h3>
               </div>
               <div
-                *ngIf="modalData.name == ''"
+                *ngIf="name == ''"
                 class="text form-group col-12 col-md-9"
               >
                 <h3 title="New Character">New Character</h3>
@@ -54,7 +54,7 @@
                     class="form-control"
                     title="Id"
                     *ngIf="!modalCUD"
-                    [(ngModel)]="modalData.id"
+                    [(ngModel)]="id"
                     placeholder="Id"
                     required
                   />
@@ -63,7 +63,7 @@
                     class="form-control"
                     title="Id"
                     *ngIf="modalCUD"
-                    [(ngModel)]="modalData.id"
+                    [(ngModel)]="id"
                     placeholder="Id"
                     disabled
                   />
@@ -73,7 +73,7 @@
                   <input
                     class="form-control"
                     title="Name"
-                    [(ngModel)]="modalData.name"
+                    [(ngModel)]="name"
                     placeholder="Name"
                   />
                 </div>
@@ -83,7 +83,7 @@
                   <mat-form-field appearance="fill">
                     <mat-label>Status:</mat-label>
                     <mat-select
-                      [(ngModel)]="modalData.status"
+                      [(ngModel)]="status"
                       title="Status"
                       placeholder="Status"
                     >
@@ -101,7 +101,7 @@
                   <mat-form-field appearance="fill">
                     <mat-label>Gender:</mat-label>
                     <mat-select
-                      [(ngModel)]="modalData.gender"
+                      [(ngModel)]="gender"
                       title="Gender"
                       placeholder="Gender"
                     >

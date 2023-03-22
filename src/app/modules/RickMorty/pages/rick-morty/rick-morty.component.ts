@@ -109,6 +109,7 @@ export class RickMortyComponent implements OnInit {
   }
 
   viewEpisodes(Id: number): void {
+    this.ViewEpisode = []
     let Episodes = []
     let location = this.ListCharacters.findIndex((item) => item.id == (Id))
     this.imageCharacter = this.ListCharacters[location].image
