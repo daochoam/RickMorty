@@ -1,32 +1,42 @@
 import { HttpClientModule } from '@angular/common/http';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LazyLoadImageModule } from 'ng-lazyload-image'
+import { NgOptimizedImage } from '@angular/common'
 import { InfiniteScrollModule } from "ngx-infinite-scroll";
 
 // Angular Material
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule} from '@angular/material/select';
+import { MatButtonModule} from '@angular/material/button';
+import { MatDialogModule} from '@angular/material/dialog';
 
-import { NgOptimizedImage } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RickMortyComponent } from './modules/rick-morty/rick-morty.component';
-import { LateralMenuComponent } from './core/lateral-menu/lateral-menu.component';
+
+import { LateralMenuComponent } from './shared/lateral-menu/lateral-menu.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RickMortyComponent } from './modules/RickMorty/pages/rick-morty/rick-morty.component';
+import { ModalDataComponent } from './modules/RickMorty/component/modal-data/modal-data.component';
+import { ViewEpisodeComponent } from './modules/RickMorty/component/view-episode/view-episode.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     RickMortyComponent,
+    ModalDataComponent,
+    ViewEpisodeComponent,
     LateralMenuComponent,
+
   ],
   imports: [
     HttpClientModule,
+    BrowserAnimationsModule,
+    NgOptimizedImage,
     LazyLoadImageModule,
     InfiniteScrollModule,
-    NgOptimizedImage,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
@@ -34,10 +44,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
     // Angular Material
     MatSelectModule,
-     BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   exports: [
-    MatSelectModule
   ],
 
   providers: [],

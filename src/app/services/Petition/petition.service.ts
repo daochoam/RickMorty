@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { Character, ReqCharacter } from '../../interfaces'
+import { Character, ReqCharacters } from '../../core/interfaces'
 @Injectable({
   providedIn: 'root'
 })
