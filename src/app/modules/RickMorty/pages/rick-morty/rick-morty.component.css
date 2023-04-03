@@ -203,6 +203,8 @@ img {
   width: 100%;
   flex-wrap: nowrap;
   padding: 5px;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .btn-s {
@@ -267,7 +269,7 @@ img {
 /* =================================================================
     * SCREEN *
 ==================================================================*/
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 800px) {
   .tsmall {
     display: none;
   }
@@ -341,7 +343,7 @@ img {
   }
 
   tbody tr td.name {
-    height: 100px;
+    height: 120px;
     width: 100px;
   }
 

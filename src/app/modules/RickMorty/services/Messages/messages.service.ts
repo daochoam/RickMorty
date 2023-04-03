@@ -31,7 +31,7 @@ export class MessagesService {
     })
   }
 
-  Err(messages:string='') {
+  Err(messages: string = '') {
     this.Message('Oops... Invalid Field', `${messages}`,
       'center', 'error', 2000)
   }
@@ -64,7 +64,7 @@ export class MessagesService {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Eliminar'
+      confirmButtonText: 'Delete'
     })
   }
 

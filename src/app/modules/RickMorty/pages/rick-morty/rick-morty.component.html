@@ -3,7 +3,7 @@
   <div
     class="info search-results"
     infiniteScroll
-    [infiniteScrollDistance]=".4"
+    [infiniteScrollDistance]="0.4"
     [infiniteScrollThrottle]="50"
     (scrolled)="onScroll()"
     [scrollWindow]="false"
@@ -27,10 +27,19 @@
 
       <tbody>
         <tr *ngFor="let character of ListCharacters">
-          <td class="id" (click)="loadCharacter(character.id)">{{ character.id }}</td>
+          <td class="id" (click)="loadCharacter(character.id)">
+            {{ character.id }}
+          </td>
           <!-- <td> <img [lazyLoad]=character.image class="imgproducto"/></td> -->
           <td (click)="loadCharacter(character.id)">
-            <img  [ngSrc]=character.image  width="70"  height="70" fetchpriotity="auto"  loading="lazy"  alt="image character"/>
+            <img
+              [ngSrc]="character.image"
+              width="70"
+              height="70"
+              fetchpriotity="auto"
+              loading="lazy"
+              alt="image character"
+            />
           </td>
           <td class="name" (click)="loadCharacter(character.id)">
             <p class="name" [title]="character.name">{{ character.name }}</p>
@@ -38,7 +47,10 @@
           <td (click)="loadCharacter(character.id)">{{ character.status }}</td>
           <td (click)="loadCharacter(character.id)">{{ character.gender }}</td>
           <td>
-            <i class="fa-sharp fa-solid fa-circle-play fa-2x" (click)="viewEpisodes(character.id)"></i>
+            <i
+              class="fa-sharp fa-solid fa-circle-play fa-2x"
+              (click)="viewEpisodes(character.id)"
+            ></i>
           </td>
         </tr>
       </tbody>
@@ -53,23 +65,25 @@
   </div>
 </div>
 
-  <app-modal-data
-    [ListCharacters]="ListCharacters"
-    [id]="DataCharacter.id"
-    [image]="DataCharacter.image"
-    [name]="DataCharacter.name"
-    [gender]="DataCharacter.gender"
-    [status]="DataCharacter.status"
-    [episode]="DataCharacter.episode"
-    [maxloadCharacter]="maxloadCharacter"
-    [modalCUD]="CUD"
-    [Pages]="Pages"
-    (newListCharacters)="ListCharacters=$event">
-  </app-modal-data>
+<app-modal-data
+  [ListCharacters]="ListCharacters"
+  [id]="DataCharacter.id"
+  [image]="DataCharacter.image"
+  [name]="DataCharacter.name"
+  [gender]="DataCharacter.gender"
+  [status]="DataCharacter.status"
+  [episode]="DataCharacter.episode"
+  [maxloadCharacter]="maxloadCharacter"
+  [modalCUD]="CUD"
+  [Pages]="Pages"
+  (newListCharacters)="ListCharacters = $event"
+>
+</app-modal-data>
 
-  <app-view-episode
-    [imgCharacter]="imageCharacter"
-    [nameCharacter]="nameCharacter"
-    [maxloadCharacter]="maxloadCharacter"
-    [ViewEpisode]="ViewEpisode">
-  </app-view-episode>
+<app-view-episode
+  [imgCharacter]="imageCharacter"
+  [nameCharacter]="nameCharacter"
+  [maxloadCharacter]="maxloadCharacter"
+  [ViewEpisode]="ViewEpisode"
+>
+</app-view-episode>

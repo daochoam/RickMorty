@@ -18,16 +18,10 @@
                   alt="image character"
                 />
               </div>
-              <div
-                *ngIf="name != ''"
-                class="text form-group col-12 col-md-9"
-              >
+              <div *ngIf="name != ''" class="text form-group col-12 col-md-9">
                 <h3 [title]="name">{{ name }}</h3>
               </div>
-              <div
-                *ngIf="name == ''"
-                class="text form-group col-12 col-md-9"
-              >
+              <div *ngIf="name == ''" class="text form-group col-12 col-md-9">
                 <h3 title="New Character">New Character</h3>
               </div>
             </div>
@@ -115,7 +109,6 @@
                     </mat-select>
                   </mat-form-field>
                 </div>
-
               </div>
             </div>
           </div>
